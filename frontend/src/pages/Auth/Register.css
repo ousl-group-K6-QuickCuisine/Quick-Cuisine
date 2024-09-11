@@ -1,0 +1,40 @@
+.register_container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form_container {
+  margin-top: 16px;
+}
+
+.register_from {
+  width: 100%;
+  max-width: 32rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.register_header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+}
+.account-prompt {
+  text-align: center;
+  margin-top: 16px;
+}
+.login_link {
+  color: #fabc3f;
+}
+
+.redirect-message {
+  color: white;
+}
+
+.login_link:hover {
+  text-decoration-line: underline;
+}
