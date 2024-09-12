@@ -33,32 +33,34 @@ const Register = () => {
   const submitHandler = async (e) => {
     e.preventDefault()
 
+    if (!username || !email || !password || !confirmPassword) {
+      toast.error('Please fill in all fields')
+      return
+    }
     if (password !== confirmPassword) {
       toast.error('Passwords do not match')
-    }
-    // } else if (password.length < 8) {
-    //   toast.error('Password must be at least 8 characters long')
-    // } else if (!/[A-Z]/.test(password)) {
-    //   toast.error('Password must contain at least one uppercase letter')
-    // } else if (!/[a-z]/.test(password)) {
-    //   toast.error('Password must contain at least one lowercase letter')
-    // } else if (!/[0-9]/.test(password)) {
-    //   toast.error('Password must contain at least one number')
-    // } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-    //   toast.error('Password must contain at least one special character')
-    // } else {
-    try {
-      const res = await register({ username, email, password }).unwrap()
-      dispatch(setCredentials({ ...res }))
-      navigate(redirect)
-      toast.success('User successfully registered')
-    } catch (err) {
-      console.log(err)
-
-      if (err.data || err.data.message === 'Email already exists') {
-        toast.error('This email is already registered')
-      } else {
-        toast.error(err.data.message || 'Something went wrong')
+    } else if (password.length < 8) {
+      toast.error('Password must be at least 8 characters long')
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error('Password must contain at least one uppercase letter')
+    } else if (!/[a-z]/.test(password)) {
+      toast.error('Password must contain at least one lowercase letter')
+    } else if (!/[0-9]/.test(password)) {
+      toast.error('Password must contain at least one number')
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      toast.error('Password must contain at least one special character')
+    } else {
+      try {
+        const res = await register({ username, email, password }).unwrap()
+        dispatch(setCredentials({ ...res }))
+        navigate(redirect)
+        toast.success('User successfully registered')
+      } catch (err) {
+        if (err?.data?.message === 'Email already exists') {
+          toast.error('This email is already registered')
+        } else {
+          toast.error(err.data.message || 'Something went wrong')
+        }
       }
     }
   }
