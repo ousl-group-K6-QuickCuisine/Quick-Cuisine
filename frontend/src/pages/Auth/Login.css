@@ -1,6 +1,4 @@
-/* Login.css */
-
-.login_container {
+Login.css .login_container {
   display: flex;
   justify-content: center;
   align-items: center;
