@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { useLogoutMutation } from '../../redux/api/usersApiSlices'
 import { logout } from '../../redux/features/auth/authSlice'
@@ -11,7 +11,7 @@ import './Navigation.css'
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth)
   const [dropDownOpen, setDropDownOpen] = useState(false)
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
+  // const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -21,13 +21,13 @@ const Navigation = () => {
     setDropDownOpen(!dropDownOpen)
   }
 
-  const toggleMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu)
-  }
+  // const toggleMobileMenu = () => {
+  //   setShowMobileMenu(!showMobileMenu)
+  // }
 
-  const closeMobileMenu = () => {
-    setShowMobileMenu(false)
-  }
+  // const closeMobileMenu = () => {
+  //   setShowMobileMenu(false)
+  // }
 
   const logoutHandler = async () => {
     try {
@@ -39,19 +39,18 @@ const Navigation = () => {
     }
   }
 
-  // Close the mobile menu when a user clicks outside of it (optional)
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!e.target.closest('.nav_bar') && showMobileMenu) {
-        closeMobileMenu()
-      }
-    }
-
-    document.addEventListener('click', handleClickOutside)
-    return () => {
-      document.removeEventListener('click', handleClickOutside)
-    }
-  }, [showMobileMenu])
+  // // Close the mobile menu when a user clicks outside of it (optional)
+  // useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     if (!e.target.closest('.nav_bar') && showMobileMenu) {
+  //       closeMobileMenu()
+  //     }
+  //   }
+  //   document.addEventListener('click', handleClickOutside)
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutside)
+  //   }
+  // }, [showMobileMenu])
 
   return (
     <nav className="nav_bar">
@@ -61,12 +60,10 @@ const Navigation = () => {
         </h1>
       </div>
 
-      {/* Mobile menu button */}
-      <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+      {/* <button className="mobile-menu-button" onClick={toggleMobileMenu}>
         ☰
-      </button>
-
-      {/* Mobile menu */}
+      </button> */}
+      {/* 
       <div className={`mobile-menu ${showMobileMenu ? 'show' : ''}`}>
         <NavLink to="/" onClick={closeMobileMenu}>
           Home
@@ -88,7 +85,7 @@ const Navigation = () => {
             <AuthLinks onLinkClick={closeMobileMenu} />
           </div>
         )}
-      </div>
+      </div>   */}
 
       {/* Desktop menu */}
       <div className="nav_link">

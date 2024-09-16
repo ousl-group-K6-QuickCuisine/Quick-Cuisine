@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import { useLoginMutation } from '../../redux/api/usersApiSlices'
 import Loader from '../../Components/Loader'
 import InputField from '../../Components/InputField'
-import Button from '../../Components/Button'
+import ButtonForLogin from '../../Components/ButtonForRegister'
 import './Login.css'
 
 const Login = () => {
@@ -76,9 +76,13 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button type="submit" disabled={isLoading} isLoading={isLoading}>
+          <ButtonForLogin
+            type="submit"
+            disabled={isLoading}
+            isLoading={isLoading}
+          >
             Login
-          </Button>
+          </ButtonForLogin>
 
           {isLoading && <Loader />}
         </form>

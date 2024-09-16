@@ -1,4 +1,4 @@
-/* .register_container {
+.register_container {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -37,4 +37,4 @@
 
 .login_link:hover {
   text-decoration-line: underline;
-} */
+}

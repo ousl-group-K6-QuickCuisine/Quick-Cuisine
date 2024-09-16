@@ -1,4 +1,4 @@
-/* .input_container {
+.input_container {
   margin-top: 8px;
   margin-bottom: 8px;
 }
@@ -8,4 +8,10 @@
   line-height: 20px;
   font-weight: 500;
   color: white;
-} */
+}
+.input_design {
+  margin: 0.25rem; /* 4px */
+  padding: 1rem; /* 16px */
+  border-radius: 0.25rem; /* 4px */
+  width: 100%;
+}
