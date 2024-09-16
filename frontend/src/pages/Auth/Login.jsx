@@ -77,7 +77,7 @@ const Login = () => {
           />
 
           <Button type="submit" disabled={isLoading} isLoading={isLoading}>
-            Sign In
+            Login
           </Button>
 
           {isLoading && <Loader />}
