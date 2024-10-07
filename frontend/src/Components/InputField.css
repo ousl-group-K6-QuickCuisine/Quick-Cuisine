@@ -7,14 +7,20 @@
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
-  color: white;
 }
-<<<<<<< HEAD
+
 .input_design {
-  margin: 0.25rem; /* 4px */
-  padding: 1rem; /* 16px */
-  border-radius: 0.25rem; /* 4px */
+  margin: 0.25rem 0;
+  padding: 1rem;
+  border-radius: 0.25rem;
   width: 100%;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
 }
-=======
->>>>>>> ba5aabe01edc50942b9244c6c94aa88c65fe5116
+
+.input_design:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: yellow;
+}

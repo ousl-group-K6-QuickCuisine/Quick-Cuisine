@@ -1,13 +1,10 @@
-// Button.js
-import '../Components/Button.css'
-const Button = ({ type, disabled, isLoading, children }) => {
+// eslint-disable-next-line react/prop-types
+export const Button = ({ type, buttonName, onclick }) => {
   return (
     <div className="btn-container">
-      <button disabled={isLoading} type="submit" className="btn">
-        {isLoading ? 'Registering...' : 'Register'}
+      <button type={type} className="btn" onClick={onclick}>
+        {buttonName}
       </button>
     </div>
   )
 }
-
-export default Button

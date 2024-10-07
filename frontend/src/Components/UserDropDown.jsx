@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // components/UserDropdown.js
 import Dropdown from './Dropdown'
 // import './UserDropdown.css' // Optional CSS file for styling

@@ -1,9 +1,10 @@
 // Button.js
 import '../Components/Button.css'
-const ButtonForLogin = ({ type, disabled, isLoading, children }) => {
+// eslint-disable-next-line react/prop-types
+const ButtonForLogin = ({ type, isLoading }) => {
   return (
     <div className="btn-container">
-      <button disabled={isLoading} type="submit" className="btn">
+      <button disabled={isLoading} type={type} className="btn">
         {isLoading ? 'logging...' : 'Login'}
       </button>
     </div>

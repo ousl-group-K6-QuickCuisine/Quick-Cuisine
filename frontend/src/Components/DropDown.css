@@ -1,0 +1,26 @@
+.dropdown_content {
+  position: absolute;
+  right: 0px;
+  margin-top: 0.5rem;
+  background-color: #1f2937;
+  border-radius: 0.25rem;
+  width: 12rem;
+  color: white;
+  margin-bottom: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg equivalent */
+  padding: 10px;
+  top: 2.5rem /* 40px */;
+}
+.dropdown_item {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.dropdown_item:hover {
+  --tw-bg-opacity: 1;
+  background-color: #fabc3f;
+}

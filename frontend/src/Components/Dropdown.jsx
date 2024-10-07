@@ -1,71 +1,51 @@
+/* eslint-disable react/prop-types */
 // Dropdown.js
 import { Link } from 'react-router-dom'
+import '../Components/DropDown.css'
 
 const Dropdown = ({ userInfo, dropDownOpen, logoutHandler }) => {
   return (
     <>
       {dropDownOpen && userInfo && (
-        <ul
-          className={`absolute right-0 mt-2 space-y-2 bg-gray-800 shadow-lg rounded text-black-600 w-48 ${
-            !userInfo.isAdmin ? 'top-10' : 'top-10'
-          }`}
-        >
+        <ul className="dropdown_content">
           {userInfo.isAdmin && (
             <>
               <li>
-                <Link
-                  to="/admin/dashboard"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
+                <Link to="/admin/dashboard" className="dropdown_item">
                   Dashboard
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/admin/productlist"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
+                <Link to="/admin/product_list" className="dropdown_item">
                   Products
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/admin/category"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
+                <Link to="/admin/category" className="dropdown_item">
                   Category
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/admin/orderlist"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
+                <Link to="/admin/order_list" className="dropdown_item">
                   Orders
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/admin/userlist"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
+                <Link to="/admin/user_list" className="dropdown_item">
                   Users
                 </Link>
               </li>
             </>
           )}
           <li>
-            <Link
-              to="/admin/profile"
-              className="block px-4 py-2 hover:bg-[#fabc3f]"
-            >
+            <Link to="/profile" className=" dropdown_item">
               Profile
             </Link>
           </li>
           <li>
             <Link
-              to="/admin/logout"
-              className="block px-4 py-2 hover:bg-[#fabc3f]"
+              to="/logout"
+              className=" dropdown_item"
               onClick={logoutHandler}
             >
               Logout
