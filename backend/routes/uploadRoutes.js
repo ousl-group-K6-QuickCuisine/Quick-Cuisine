@@ -10,19 +10,19 @@ const router = express.Router()
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Define the uploads directory
-const uploadsDir = path.join(__dirname, '../../uploads')
+// Define the uploads directory as an absolute path
+const uploadsDir = path.resolve(__dirname, '../../uploads') // Ensure we use absolute path
 
 // Ensure the uploads directory exists
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true }) // Create directory if it doesn't exist
 }
 
+// Multer setup for file storage and file validation
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadsDir)
   },
-
   filename: (req, file, cb) => {
     const extname = path.extname(file.originalname)
     cb(null, `${file.fieldname}-${Date.now()}${extname}`)
@@ -43,7 +43,10 @@ const fileFilter = (req, file, cb) => {
   }
 }
 
+// Initialize multer with the storage and fileFilter options
 const upload = multer({ storage, fileFilter })
+
+// Define uploadSingleImage to handle a single file upload (the 'image' field)
 const uploadSingleImage = upload.single('image')
 
 router.post('/', (req, res) => {
@@ -53,7 +56,7 @@ router.post('/', (req, res) => {
     } else if (req.file) {
       res.status(200).send({
         message: 'Image uploaded successfully',
-        image: `/${req.file.path}`,
+        image: `/uploads/${req.file.filename}`, // Correct path for frontend access
       })
     } else {
       res.status(400).send({ message: 'No image file provided' })

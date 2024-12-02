@@ -8,6 +8,7 @@ import {
 } from '../../redux/api/categoryApiSlice'
 import CategoryForm from '../../Components/CategoryForm'
 import Modal from '../../Components/Modal'
+import './CategoryList.css'
 
 const CategoryList = () => {
   const [name, setName] = useState('')
@@ -84,33 +85,32 @@ const CategoryList = () => {
       }
     } catch (error) {
       console.error(error)
-      toast.error('Category delete failed. Tray again.')
+      toast.error('Category delete failed. Try again.')
     }
   }
 
   return (
-    <div className="ml-[10rem] flex flex-col md:flex-row">
-      {/*Admin Menu */}
-      <div className="md:w-3/4 p-3">
-        <div className="h-12">Manage categories</div>
-        <CategoryForm
-          value={name}
-          setValue={setName}
-          handleSubmit={handleCreateCategory}
-        />
-        <br />
-        <hr />
-        <div className="flex flex-wrap">
+    <div className="category-list-container">
+      {/* Admin Menu */}
+      <div className="admin-menu">
+        {/* <div className="manage-categories-title">Manage Categories</div> */}
+        <div className="category-form">
+          <CategoryForm
+            value={name}
+            setValue={setName}
+            handleSubmit={handleCreateCategory}
+          />
+        </div>
+        <hr className="category-divider" />
+        <div className="category-buttons-container">
           {categories?.map((category) => (
             <div key={category._id}>
               <button
-                className="bg-white border border-pink-500 py-2 px-4 rounded-lg m-3 hover:bg-pink-500 hover::text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50"
+                className="category-button"
                 onClick={() => {
-                  {
-                    setModalVisible(true)
-                    setSelectedCategory(category)
-                    setUpdatingName(category.name)
-                  }
+                  setModalVisible(true)
+                  setSelectedCategory(category)
+                  setUpdatingName(category.name)
                 }}
               >
                 {category.name}
@@ -132,4 +132,5 @@ const CategoryList = () => {
     </div>
   )
 }
+
 export default CategoryList

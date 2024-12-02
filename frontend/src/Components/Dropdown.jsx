@@ -2,6 +2,7 @@
 // Dropdown.js
 import { Link } from 'react-router-dom'
 import '../Components/DropDown.css'
+import AdminMenu from '../pages/Admin/AdminMenu'
 
 const Dropdown = ({ userInfo, dropDownOpen, logoutHandler }) => {
   return (
@@ -10,29 +11,35 @@ const Dropdown = ({ userInfo, dropDownOpen, logoutHandler }) => {
         <ul className="dropdown_content">
           {userInfo.isAdmin && (
             <>
+              {/* <AdminMenu /> */}
               <li>
                 <Link to="/admin/dashboard" className="dropdown_item">
-                  Dashboard
+                  Admin Dashboard
                 </Link>
               </li>
               <li>
-                <Link to="/admin/product_list" className="dropdown_item">
-                  Products
+                <Link to="/admin/productlist" className="dropdown_item">
+                  Create Product
                 </Link>
               </li>
               <li>
                 <Link to="/admin/category" className="dropdown_item">
-                  Category
+                  Create Category
                 </Link>
               </li>
               <li>
-                <Link to="/admin/order_list" className="dropdown_item">
-                  Orders
+                <Link to="/admin/allproductslist" className="dropdown_item">
+                  All Product
                 </Link>
               </li>
               <li>
                 <Link to="/admin/user_list" className="dropdown_item">
-                  Users
+                  Manage User
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin/orderlist" className="dropdown_item">
+                  Manage Order
                 </Link>
               </li>
             </>

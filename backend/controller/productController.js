@@ -3,7 +3,8 @@ import Product from '../models/productModel.js'
 
 const addFoodItem = asyncHandler(async (req, res) => {
   try {
-    const { name, description, price, category, quantity, brand } = req.fields
+    const { name, description, price, category, quantity, foodType } =
+      req.fields
     // validation
     switch (true) {
       case !name:
@@ -16,8 +17,8 @@ const addFoodItem = asyncHandler(async (req, res) => {
         return res.status(400).json({ error: 'category is required' })
       case !quantity:
         return res.status(400).json({ error: 'quantity is required' })
-      case !brand:
-        return res.status(400).json({ error: 'brand is required' })
+      case !foodType:
+        return res.status(400).json({ error: 'foodType is required' })
     }
     const item = new Product({ ...req.fields })
     await item.save()
@@ -31,7 +32,8 @@ const addFoodItem = asyncHandler(async (req, res) => {
 
 const updateFoodItemDetails = asyncHandler(async (req, res) => {
   try {
-    const { name, description, price, category, quantity, brand } = req.fields
+    const { name, description, price, category, quantity, foodType } =
+      req.fields
     // validation
     switch (true) {
       case !name:
@@ -44,8 +46,8 @@ const updateFoodItemDetails = asyncHandler(async (req, res) => {
         return res.status(400).json({ error: 'category is required' })
       case !quantity:
         return res.status(400).json({ error: 'quantity is required' })
-      case !brand:
-        return res.status(400).json({ error: 'brand is required' })
+      case !foodType:
+        return res.status(400).json({ error: 'foodType is required' })
     }
 
     const item = await Product.findByIdAndUpdate(

@@ -1,0 +1,245 @@
+.product-list-container {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  padding: 0.5rem;
+  width: 80%; /* Restricting width to make it more centered */
+  max-width: 1200px;
+  height: auto;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center; /* Vertically centers the content */
+}
+
+/* Heading Styling */
+.create-product-heading {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fa9336;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 5px reba(0, 0, 0, 0.2);
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .product-list-container {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+/* Flex Layout for Admin Menu and Product Form */
+/* .product-list-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+@media (min-width: 768px) {
+  .product-list-flex-row {
+    flex-direction: row;
+  }
+}
+
+/* Image Preview */
+.product-image-preview {
+  display: block;
+  margin: 0 auto;
+  max-height: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px reba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+/* File Upload Label Styling */
+.product-image-upload-label {
+  border: 2px dashed #fa9336;
+  padding: 1.5rem 4rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.product-image-upload-label:hover {
+  background-color: #fce4ec;
+  border-color: #fa9336;
+}
+
+.product-image-upload-label input {
+  display: none;
+}
+
+/* Form Input Styling */
+.product-form-input {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-form-input:focus {
+  border-color: #fa9336;
+  outline: none;
+  box-shadow: 0 0 8px #fa9336;
+}
+
+/* Flex Layout for Input Groups */
+.product-form-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-form-input-group {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .product-form-input-group {
+    margin-right: 0;
+    flex: 100%;
+  }
+}
+
+/* Category Dropdown Styling */
+.product-category-select {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%; /* Ensure full width */
+  max-width: 400px; /* Limit the width */
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.product-category-select:hover {
+  border-color: #fa9336;
+}
+
+.product-category-select option {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+/* Textarea for Product Description */
+.product-description-textarea {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 100%; /* Ensure full width */
+  border-radius: 12px;
+  border: 2px solid #fa9336;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.product-description-textarea:focus {
+  border-color: #fa9336;
+  box-shadow: 0 0 8px #fa9336;
+}
+
+/* Submit Button Styling */
+.product-submit-button {
+  padding: 1rem 2.5rem;
+  margin-top: 1.25rem;
+  background-color: #fa9336;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-submit-button:hover {
+  background-color: #fa9336;
+  transform: scale(1.05);
+}
+
+.product-submit-button:active {
+  background-color: #fa9336;
+}
+
+/* Heading Styling */
+h1,
+h2,
+h3 {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Add subtle shadows and transitions to section headings */
+h1,
+.section-title {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+h1:hover,
+.section-title:hover {
+  color: #fa9336;
+  transform: translateX(5px);
+}
+
+/* Flex Layout for Count in Stock and Category */
+.product-form-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; /* Adds space between the inputs */
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+/* Flex Items for Count in Stock and Category */
+.product-form-flex > div {
+  flex: 1;
+  min-width: 250px; /* Ensure each input takes at least 250px of space */
+}
+
+/* Label Styling */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Input and Select Styling */
+.product-form-input,
+.product-category-select {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input and Select Focus Styling */
+.product-form-input:focus,
+.product-category-select:focus {
+  border-color: #fa9336;
+  outline: none;
+  box-shadow: 0 0 8px #fa9336;
+}
+
+/* Category Select Option Styling */
+.product-category-select option {
+  font-size: 1rem;
+  padding: 10px;
+}

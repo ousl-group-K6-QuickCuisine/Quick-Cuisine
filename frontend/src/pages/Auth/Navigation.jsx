@@ -7,6 +7,7 @@ import NavLink from '../../Components/NavLink'
 import AuthLinks from '../../Components/AuthLinks'
 import UserDropdown from '../../Components/UserDropDown'
 import './Navigation.css'
+import FavoritesCount from '../Products/FavoritesCount'
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth)
@@ -92,7 +93,12 @@ const Navigation = () => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/menu">Menu</NavLink>
         <NavLink to="/cart">Cart</NavLink>
-        <NavLink to="/favorite">Favorite</NavLink>
+        <div className="relative flex items-center">
+          <FavoritesCount />
+          <NavLink to="/favorite" className="nav-item" activeClassName="">
+            Favorite
+          </NavLink>
+        </div>
         <NavLink to="/aboutUs">About Us</NavLink>
       </div>
 

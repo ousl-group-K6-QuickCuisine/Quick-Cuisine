@@ -1,31 +1,65 @@
 /* eslint-disable react/prop-types */
+import './CategoryForm.css'
+
+// const CategoryForm = ({
+//   value,
+//   setValue,
+//   handleSubmit,
+//   buttonText = 'Submit',
+//   handleDelete,
+// }) => {
+//   return (
+//     <div className="form-container">
+//       <form onSubmit={handleSubmit} className="space-y-4">
+//         <input
+//           type="text"
+//           className="form-input"
+//           placeholder="Write Category name"
+//           value={value}
+//           onChange={(e) => setValue(e.target.value)}
+//         />
+//         <div className="button-group">
+//           <button type="submit" className="button button-submit">
+//             {buttonText}
+//           </button>
+
+//           {handleDelete && (
+//             <button onClick={handleDelete} className="button button-delete">
+//               Delete
+//             </button>
+//           )}
+//         </div>
+//       </form>
+//     </div>
+//   )
+// }
+import './CategoryForm.css'
+
 const CategoryForm = ({
   value,
   setValue,
   handleSubmit,
-  buttonText = 'Submit',
+  buttonText = 'Created',
   handleDelete,
 }) => {
   return (
-    <div className="p-3">
-      <form onSubmit={handleSubmit} className="space-y-3 ">
+    <div className="form-container">
+      <h2 className="form-header">Created Category</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
-          className="py-3 px-4 border rounded-lg w-full"
+          className="form-input"
           placeholder="Write Category name"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <div className="flex justify-between">
-          <button className="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50">
+        <div className="button-group">
+          <button type="submit" className="button button-submit">
             {buttonText}
           </button>
 
           {handleDelete && (
-            <button
-              onClick={handleDelete}
-              className="bg-red-500 text-white py2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
-            >
+            <button onClick={handleDelete} className="button button-delete">
               Delete
             </button>
           )}
@@ -34,4 +68,5 @@ const CategoryForm = ({
     </div>
   )
 }
+
 export default CategoryForm
