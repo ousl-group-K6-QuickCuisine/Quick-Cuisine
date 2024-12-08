@@ -11,6 +11,7 @@ import FavoritesCount from '../Products/FavoritesCount'
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth)
+  const { cartItems } = useSelector((state) => state.cart)
   const [dropDownOpen, setDropDownOpen] = useState(false)
   // const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -92,7 +93,23 @@ const Navigation = () => {
       <div className="nav_link">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/menu">Menu</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
+
+        <div className="relative flex items-center">
+          <NavLink
+            to="/cart"
+            className="text-lg font-semibold text-gray-800 hover:text-yellow-500 transition-colors"
+          >
+            Cart
+          </NavLink>
+          <div className="absolute top-[-0.2rem] right-[-0.5rem]">
+            {cartItems.length > 0 && (
+              <span className="px-2 py-1 text-sm bg-yellow-500 text-white rounded-full">
+                {cartItems.reduce((acc, c) => acc + c.qty, 0)}
+              </span>
+            )}
+          </div>
+        </div>
+
         <div className="relative flex items-center">
           <FavoritesCount />
           <NavLink to="/favorite" className="nav-item" activeClassName="">

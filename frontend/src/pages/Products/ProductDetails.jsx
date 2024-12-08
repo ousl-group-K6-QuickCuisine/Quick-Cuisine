@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {
@@ -13,10 +13,12 @@ import HeartIcon from './HeartIcon'
 import moment from 'moment'
 import Ratings from './Ratings'
 import ProductTabs from './ProductTabs'
+import { addToCart } from '../../redux/cart/cartSlice'
 
 const ProductDetails = () => {
   const { id: productId } = useParams()
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [qty, setQty] = useState(1)
   const [rating, setRating] = useState(0)
@@ -42,6 +44,11 @@ const ProductDetails = () => {
     } catch (error) {
       toast.error(error?.data?.message || 'Failed to add review')
     }
+  }
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, qty }))
+    navigate('/cart')
   }
 
   return (
@@ -141,7 +148,7 @@ const ProductDetails = () => {
             </div>
 
             <button
-              onClick={() => toast.info('Added to Cart!')} // Replace with actual handler
+              onClick={addToCartHandler}
               disabled={product.countInStock === 0}
               className={`px-6 py-3 rounded-lg text-white transition ${
                 product.countInStock

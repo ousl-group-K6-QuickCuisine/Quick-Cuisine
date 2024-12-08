@@ -3,11 +3,11 @@ import { Link, useParams } from 'react-router-dom'
 import {
   useGetProductsQuery,
   useAllProductsQuery,
-} from './redux/api/productApiSlice'
-import Loader from './Components/Loader'
-import Header from './Components/Header'
-import Message from './Components/Message'
-import Product from './pages/Products/Product'
+} from '../redux/api/productApiSlice'
+import Loader from '../Components/Loader'
+import Header from '../Components/Header'
+import Message from '../Components/Message'
+import Product from './Products/Product'
 
 const Home = () => {
   const { keyword } = useParams()
@@ -28,7 +28,7 @@ const Home = () => {
             </h1>
             <Link
               className="bg-yellow-600 text-white font-bold rounded-full py-2 px-10 mr-[18rem] mt-[1rem] hover:bg-yellow-600 transition-colors"
-              to="/shop"
+              to="/menu"
             >
               Search
             </Link>

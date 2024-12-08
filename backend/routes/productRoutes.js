@@ -14,6 +14,7 @@ import {
   addFoodItemReview,
   getTopFoodItem,
   getNewFoodItem,
+  filterProducts,
 } from '../controller/productController.js'
 
 const router = express.Router()
@@ -36,5 +37,7 @@ router
   .get(getFoodItemById)
   .put(authenticate, AuthorizedAdmin, Formidable(), updateFoodItemDetails)
   .delete(authenticate, AuthorizedAdmin, deleteFoodItem)
+
+router.route('/filtered-products').post(filterProducts)
 
 export default router

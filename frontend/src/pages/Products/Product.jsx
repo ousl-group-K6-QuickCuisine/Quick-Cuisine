@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
 import HeartIcon from './HeartIcon'
+// import './Product.css'
 
 const Product = ({ product }) => {
   return (
     <div className="w-[18rem] ml-[2rem] relative rounded-lg shadow-lg border bg-white transition-transform hover:scale-105">
+      {' '}
       <div className="relative">
         <img
           src={product.image}
@@ -44,5 +46,87 @@ const Product = ({ product }) => {
     </div>
   )
 }
+// <div className="product-card">
+//   <div className="product-image-container">
+//     <img src={product.image} alt={product.name} className="product-image" />
+//     <div className="heart-icon-container">
+//       <HeartIcon product={product} />
+//     </div>
+//   </div>
+//   <div className="product-details">
+//     <div className="flex justify-between items-center">
+//       <Link to={`/product/${product._id}`}>
+//         <h2 className="product-title">{product.name}</h2>
+//       </Link>
+//       <span
+//         className={`product-availability ${
+//           product.countInStock > 0
+//             ? 'product-available'
+//             : 'product-not-available'
+//         }`}
+//       >
+//         {product.countInStock > 0 ? 'Available' : 'Not Available'}
+//       </span>
+//     </div>
+//     <div className="flex justify-between items-center">
+//       <span className="product-price">LKR {product.price}</span>
+//       <span className="product-food-type">{product.foodType}</span>
+//     </div>
+//   </div>
+// </div>
+// <div className="product-card">
+//   <div className="product-image-container">
+//     <img src={product.image} alt={product.name} className="product-image" />
+//     <div className="heart-icon-container">
+//       <HeartIcon product={product} />
+//     </div>
+//   </div>
+//   <div className="product-details">
+//     <div className="product-header">
+//       <Link to={`/product/${product._id}`} className="product-title">
+//         {product.name}
+//       </Link>
+//       <span
+//         className={`product-availability ${
+//           product.countInStock > 0 ? 'available' : 'unavailable'
+//         }`}
+//       >
+//         {product.countInStock > 0 ? 'Available' : 'Not Available'}
+//       </span>
+//     </div>
+//     <div className="product-footer">
+//       <span className="product-price">LKR {product.price}</span>
+//       <span className="product-food-type">{product.foodType}</span>
+//     </div>
+//   </div>
+// </div>
+// <div className="product-card">
+//   <div className="product-image-container">
+//     <img src={product.image} alt={product.name} className="product-image" />
+//     <div className="heart-icon-container">
+//       <HeartIcon product={product} />
+//     </div>
+//   </div>
+//   <div className="product-details">
+//     <div className="flex justify-between items-center">
+//       <Link to={`/product/${product._id}`}>
+//         <h2 className="product-title">{product.name}</h2>
+//       </Link>
+//       <span
+//         className={`product-availability ${
+//           product.countInStock > 0
+//             ? 'product-available'
+//             : 'product-not-available'
+//         }`}
+//       >
+//         {product.countInStock > 0 ? 'Available' : 'Not Available'}
+//       </span>
+//     </div>
+//     <div className="flex justify-between items-center">
+//       <span className="product-price">LKR {product.price}</span>
+//       <span className="product-food-type">{product.foodType}</span>
+//     </div>
+//   </div>
+// </div>
 
 export default Product

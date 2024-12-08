@@ -64,7 +64,7 @@ export const Profile = () => {
     }
   }
   return (
-    <div className="container mx-auto p-4 mt-[10rem]">
+    <div className="container mx-auto p-4 mt-[6rem]">
       <div className="flex justify-center align-center md:flex md:space-x-4">
         <div className="md:w-1/3">
           <h2 className="text-2xl font-semibold mb-4">Update Profile</h2>
@@ -96,7 +96,7 @@ export const Profile = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               label={'Confirm Password'}
             />
-            <div className="flex justify-between ">
+            <div className="flex  gap-2 ">
               <Button type={'submit'} buttonName={'Update'} />
               <Link to="/user-order">
                 <Button buttonName={'My Orders'} />
