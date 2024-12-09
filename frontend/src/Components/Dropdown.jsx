@@ -38,7 +38,7 @@ const Dropdown = ({ userInfo, dropDownOpen, logoutHandler }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/admin/orderlist" className="dropdown_item">
+                <Link to="/admin/order-lists" className="dropdown_item">
                   Manage Order
                 </Link>
               </li>

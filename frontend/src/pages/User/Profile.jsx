@@ -98,7 +98,7 @@ export const Profile = () => {
             />
             <div className="flex  gap-2 ">
               <Button type={'submit'} buttonName={'Update'} />
-              <Link to="/user-order">
+              <Link to="/user-orders">
                 <Button buttonName={'My Orders'} />
               </Link>
             </div>

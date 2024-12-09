@@ -10,7 +10,6 @@ export const orderApiSlice = apiSlice.injectEndpoints({
         body: order,
       }),
     }),
-
     getOrderDetails: builder.query({
       query: (id) => ({
         url: `${ORDERS_URL}/${id}`,
@@ -30,7 +29,7 @@ export const orderApiSlice = apiSlice.injectEndpoints({
     }),
     getMyOrders: builder.query({
       query: () => ({
-        url: `${paypal_URL}/mine`,
+        url: `${ORDERS_URL}/mine`, // Correct endpoint for user-specific orders
       }),
       keepUnusedDataFor: 5,
     }),
@@ -48,7 +47,6 @@ export const orderApiSlice = apiSlice.injectEndpoints({
     getTotalOrders: builder.query({
       query: () => `${ORDERS_URL}/total-orders`,
     }),
-
     getTotalSales: builder.query({
       query: () => `${ORDERS_URL}/total-sales`,
     }),

@@ -179,7 +179,7 @@ const Order = () => {
           <span>LKR {order.totalPrice}</span>
         </div>
         <div className="flex justify-between mb-2">
-          <span>Shipping</span>
+          <span>Delivery Fees</span>
           <span>LKR {order.shippingPrice}</span>
         </div>
         <div className="flex justify-between mb-2">

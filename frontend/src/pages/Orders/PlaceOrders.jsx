@@ -96,7 +96,7 @@ const PlaceOrder = () => {
               <strong>Items:</strong> LKR {cart.itemsPrice}
             </li>
             <li>
-              <strong>Shipping:</strong> LKR {cart.shippingPrice}
+              <strong>delivery fees:</strong> LKR {cart.shippingPrice}
             </li>
             <li>
               <strong>Tax:</strong> LKR {cart.taxPrice}
@@ -109,7 +109,9 @@ const PlaceOrder = () => {
           {error && <Message variant="danger">{error.data.message}</Message>}
 
           <div className="mt-6">
-            <h3 className="text-lg font-semibold text-gray-700">Shipping</h3>
+            <h3 className="text-lg font-semibold text-gray-700">
+              Delivery Address
+            </h3>
             <p>
               <strong>Address:</strong> {cart.shippingAddress.address},{' '}
               {cart.shippingAddress.city} {cart.shippingAddress.postalCode},{' '}
