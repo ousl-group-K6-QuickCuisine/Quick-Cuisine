@@ -2,15 +2,21 @@ import Product from '../models/productModel.js'
 import Order from '../models/orderModel.js'
 
 // Utility function to calculate prices
-const calPrices = (orderItem) => {
-  const itemsPrice = orderItem.reduce(
+const calPrices = (orderItems) => {
+  // Calculate the items price (sum of price * qty for all order items)
+  const itemsPrice = orderItems.reduce(
     (acc, item) => acc + item.price * item.qty,
     0
   )
+
+  // Determine shipping price: if itemsPrice > 100, shipping is free, otherwise it's 10
   const shippingPrice = itemsPrice > 100 ? 0 : 10
+
+  // Define a tax rate (15%)
   const taxRate = 0.15
   const taxPrice = parseFloat((itemsPrice * taxRate).toFixed(2))
 
+  // Calculate total price: itemsPrice + shippingPrice + taxPrice
   const totalPrice = parseFloat(
     (itemsPrice + shippingPrice + taxPrice).toFixed(2)
   )
@@ -33,10 +39,12 @@ const createdOrder = async (req, res) => {
       throw new Error('No Order Items')
     }
 
+    // Get products from the database that match the orderItems
     const itemsFromDB = await Product.find({
       _id: { $in: orderItems.map((x) => x._id) },
     })
 
+    // Map the order items to ensure they have the correct product data (like price)
     const dbOrderItems = orderItems.map((itemFromClient) => {
       const matchingItemFromDB = itemsFromDB.find(
         (itemFromDB) => itemFromDB._id.toString() === itemFromClient._id
@@ -55,9 +63,11 @@ const createdOrder = async (req, res) => {
       }
     })
 
+    // Calculate the prices (items price, shipping, tax, total)
     const { itemsPrice, taxPrice, shippingPrice, totalPrice } =
       calPrices(dbOrderItems)
 
+    // Create a new order with the relevant data
     const order = new Order({
       orderItems: dbOrderItems,
       user: req.user._id,
@@ -65,9 +75,11 @@ const createdOrder = async (req, res) => {
       paymentMethod,
       itemsPrice,
       shippingPrice,
+      taxPrice,
       totalPrice,
     })
 
+    // Save the order to the database
     const createdOrder = await order.save()
     res.status(201).json(createdOrder)
   } catch (error) {
@@ -186,17 +198,39 @@ const markAsPaid = async (req, res) => {
 // Mark order as delivered
 const markOrderedAsDelivered = async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id)
+    const order = await Order.findById(req.params.id).populate(
+      'orderItems.product'
+    )
 
-    if (order) {
-      order.isDelivered = true
-      order.deliveredAt = Date.now()
-
-      const updatedOrder = await order.save()
-      res.status(200).json(updatedOrder)
-    } else {
-      res.status(404).json({ error: 'Order not found' })
+    if (!order) {
+      return res.status(404).json({ error: 'Order not found' })
     }
+
+    if (!order.isPaid) {
+      return res
+        .status(400)
+        .json({ error: 'Order must be paid before delivery' })
+    }
+
+    // Reduce stock for each product in the order
+    for (const item of order.orderItems) {
+      const product = await Product.findById(item.product)
+      if (product) {
+        if (product.countInStock < item.qty) {
+          return res
+            .status(400)
+            .json({ error: `Insufficient stock for ${product.name}` })
+        }
+        product.countInStock -= item.qty
+        await product.save()
+      }
+    }
+
+    order.isDelivered = true
+    order.deliveredAt = Date.now()
+
+    const updatedOrder = await order.save()
+    res.status(200).json(updatedOrder)
   } catch (error) {
     res.status(500).json({ error: error.message })
   }

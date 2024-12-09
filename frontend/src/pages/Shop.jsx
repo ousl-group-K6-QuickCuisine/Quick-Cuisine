@@ -11,6 +11,7 @@ import {
 import Loader from '../Components/Loader'
 import { useFetchAllCategoryQuery } from '../redux/api/categoryApiSlice'
 import ProductCard from './Products/ProductCard'
+import Product from './Products/Product'
 
 const Shop = () => {
   const dispatch = useDispatch()
@@ -240,7 +241,7 @@ const Shop = () => {
             ) : (
               products?.map((p) => (
                 <div className="p-3" key={p._id}>
-                  <ProductCard p={p} />
+                  <Product product={p} />
                 </div>
               ))
             )}

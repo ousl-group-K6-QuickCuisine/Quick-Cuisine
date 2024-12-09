@@ -54,6 +54,10 @@ const Order = () => {
     }
   }, [errorPayPal, loadingPayPal, order, paypal, paypalDispatch])
 
+  useEffect(() => {
+    console.log(order) // Log the full order object
+  }, [order])
+
   const onApprove = (data, actions) => {
     return actions.order.capture().then(async function (details) {
       try {
@@ -90,21 +94,23 @@ const Order = () => {
   ) : error ? (
     <Message variant="danger">{error.data.message}</Message>
   ) : (
-    <div className="container flex flex-col ml-[10rem] md:flex-row ">
+    <div className="container flex flex-col ml-[10rem] md:flex-row">
       <div className="md:w-2/3 pr-4">
-        <div className="border gray-300 mt-5 pb-4 mb-5">
+        <div className="border-gray-300 mt-5 pb-4 mb-5">
           {order.orderItems.length === 0 ? (
             <Message>Order is Empty</Message>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mt-16">
               <table className="w-[80%]">
                 <thead className="border-b-2">
                   <tr>
-                    <th className="p-2">Image</th>
-                    <th className="p-2">Product</th>
-                    <th className="p-2 text-center">Quantity</th>
-                    <th className="p-2">Unit Price</th>
-                    <th className="p-2">Total</th>
+                    <th className="p-2 text-yellow-600">Image</th>
+                    <th className="p-2 text-yellow-600">Product</th>
+                    <th className="p-2 text-center text-yellow-600">
+                      Quantity
+                    </th>
+                    <th className="p-2 text-yellow-600">Unit Price</th>
+                    <th className="p-2 text-yellow-600">Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,7 +124,12 @@ const Order = () => {
                         />
                       </td>
                       <td className="p-2">
-                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                        <Link
+                          to={`/product/${item.product}`}
+                          className="text-yellow-600 hover:underline"
+                        >
+                          {item.name}
+                        </Link>
                       </td>
                       <td className="p-2 text-center">{item.qty}</td>
                       <td className="p-2 text-center">{item.price}</td>
@@ -133,29 +144,27 @@ const Order = () => {
           )}
         </div>
       </div>
-      <div className="md:w-1/3">
-        <div className="mt-5 border-gray-300 pb-4 mb-4">
+      <div className="md:w-1/3 mt-10">
+        <div className="mt-5 border-gray-300 pb-4">
           <h2 className="text-xl font-bold mb-2">Delivering</h2>
           <p className="mb-4 mt-4">
-            <strong className="text-pink-600">Order</strong>
-            {order._id}
+            <strong className="text-yellow-500">Order</strong> {order._id}
           </p>
           <p className="mb-4 mt-4">
-            <strong className="text-pink-600">Name</strong>
+            <strong className="text-yellow-500">Name</strong>{' '}
             {order.user.username}
           </p>
           <p className="mb-4 mt-4">
-            <strong className="text-pink-600">Email</strong>
+            <strong className="text-yellow-500">Email</strong>{' '}
             {order.user.email}
           </p>
           <p className="mb-4">
-            <strong className="text-pink-500">Address</strong>
-            {''}
-            {order.shippingAddress.address}, {order.shippingAddress.city} {''}
-            {order.shippingAddress.postalCode}, {order.shippingAddress.country},
+            <strong className="text-yellow-500">Address</strong>{' '}
+            {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
+            {order.shippingAddress.postalCode}, {order.shippingAddress.country}
           </p>
           <p className="mb-4">
-            <strong className="text-pink-600">Method:</strong>
+            <strong className="text-yellow-500">Method:</strong>{' '}
             {order.paymentMethod}
           </p>
           {order.isPaid ? (
@@ -164,26 +173,28 @@ const Order = () => {
             <Message variant="danger">Not Paid</Message>
           )}
         </div>
-        <h2 className="text-xl font-bold mb-2 mt-[3rem]">Order Summary</h2>
-        <div className=" flex justify-between mb-2">
+        <h2 className="text-xl font-bold mb-2 m-0">Order Summary</h2>
+        <div className="flex justify-between mb-2">
           <span>Items</span>
-          <span>LKR {order.itemsPrice}</span>
+          <span>LKR {order.totalPrice}</span>
         </div>
-        <div className=" flex justify-between mb-2">
+        <div className="flex justify-between mb-2">
           <span>Shipping</span>
           <span>LKR {order.shippingPrice}</span>
         </div>
-        <div className=" flex justify-between mb-2">
+        <div className="flex justify-between mb-2">
           <span>Tax</span>
           <span>LKR {order.taxPrice}</span>
         </div>
-        <div className=" flex justify-between mb-2">
-          <span>Total</span>
-          <span>LKR {order.totalPrice}</span>
+        <div className="flex justify-between mb-2">
+          <span className="text-yellow-500 font-bold">Total</span>
+          <span className="text-yellow-500 font-bold">
+            LKR {order.totalPrice}
+          </span>
         </div>
         {!order.isPaid && (
           <div>
-            {loadingPay && <Loader />}{' '}
+            {loadingPay && <Loader />}
             {isPending ? (
               <Loader />
             ) : (
@@ -205,7 +216,7 @@ const Order = () => {
           <div>
             <button
               type="button"
-              className="bg-pink-500 text-white w-full py-2"
+              className="bg-yellow-500 text-white w-full py-2"
               onClick={deliverHandler}
             >
               Mark As Delivered

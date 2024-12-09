@@ -32,12 +32,14 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import Shipping from './pages/Orders/Shipping.jsx'
 import PlaceOrder from './pages/Orders/PlaceOrders.jsx'
 import Order from './pages/Orders/Order.jsx'
+import AboutUs from './pages/AboutUS.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/aboutUs" element={<AboutUs />} />
 
       <Route path="" element={<PrivateRoute />}>
         <Route path="/profile" element={<Profile />} />
