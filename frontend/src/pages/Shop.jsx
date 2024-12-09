@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetFilteredProductsQuery } from '../redux/api/productApiSlice'
@@ -91,7 +93,7 @@ const Shop = () => {
     <div className="mx-auto p-4 mt-[5rem]">
       <div className="flex flex-wrap md:flex-nowrap">
         {/* Filter Section */}
-        <div className="bg-yellow-50 p-4 rounded-md w-full md:w-[250px] mb-6 md:mb-0 shadow-md ml-2 flex-grow-0">
+        <div className="p-4 rounded-md  md:w-[250px] mb-6 md:mb-0 shadow-md ml-2 flex-grow-0">
           <h2 className="text-center text-lg font-semibold mb-4 text-yellow-700">
             Filters
           </h2>

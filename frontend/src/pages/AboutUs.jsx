@@ -60,7 +60,7 @@ const AboutUs = () => {
             At Quick Cusine, we are committed to serving high-quality,
             locally-sourced food that brings people together. We believe in
             sustainability, community, and making every dining experience an
-            unforgettable one. Whether you're here for a casual lunch or a
+            unforgettable one. Whether you are here for a casual lunch or a
             celebratory dinner, we strive to provide an experience that will
             leave you coming back for more.
           </p>
