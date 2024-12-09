@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetFilteredProductsQuery } from '../redux/api/productApiSlice'
@@ -20,6 +19,7 @@ const Shop = () => {
   )
   const categoriesQuery = useFetchAllCategoryQuery()
   const [priceFilter, setPriceFilter] = useState('')
+  const [nameFilter, setNameFilter] = useState('') // New state for name filtering
   const filteredProductsQuery = useGetFilteredProductsQuery({ checked, radio })
 
   useEffect(() => {
@@ -31,18 +31,29 @@ const Shop = () => {
   useEffect(() => {
     if (!checked.length || !radio.length) {
       if (!filteredProductsQuery.isLoading) {
-        const filteredProducts = filteredProductsQuery.data.filter(
-          (product) => {
-            return (
-              product.price.toString().includes(priceFilter) ||
-              product.price === parseInt(priceFilter, 10)
-            )
-          }
-        )
+        let filteredProducts = filteredProductsQuery.data.filter((product) => {
+          return (
+            product.price.toString().includes(priceFilter) ||
+            product.price === parseInt(priceFilter, 10)
+          )
+        })
+        // Apply name filter here
+        if (nameFilter) {
+          filteredProducts = filteredProducts.filter((product) =>
+            product.name.toLowerCase().includes(nameFilter.toLowerCase())
+          )
+        }
         dispatch(setProducts(filteredProducts))
       }
     }
-  }, [checked, radio, filteredProductsQuery.data, dispatch, priceFilter])
+  }, [
+    checked,
+    radio,
+    filteredProductsQuery.data,
+    dispatch,
+    priceFilter,
+    nameFilter,
+  ])
 
   const handleBrandClick = (foodType) => {
     const productsByBrand = filteredProductsQuery.data?.filter(
@@ -72,97 +83,14 @@ const Shop = () => {
     setPriceFilter(e.target.value)
   }
 
+  const handleNameChange = (e) => {
+    setNameFilter(e.target.value)
+  }
+
   return (
-    // <div className=" mx-auto p-4">
-    //   <div className="flex flex-wrap md:flex-nowrap">
-    //     {/* Filter Section with Left Margin */}
-    //     <div className="bg-yellow-50 p-4 rounded-md w-full md:w-[250px] mb-6 md:mb-0 shadow-md ">
-    //       <h2 className="text-center text-lg font-semibold mb-4 text-yellow-700">
-    //         Filters
-    //       </h2>
-
-    //       {/* Category Filter */}
-    //       <div className="mb-4">
-    //         <h3 className="font-medium text-sm text-yellow-700 mb-2">
-    //           Category
-    //         </h3>
-    //         {categories?.map((c) => (
-    //           <div key={c._id} className="flex items-center mb-2">
-    //             <input
-    //               type="checkbox"
-    //               id={c._id}
-    //               onChange={(e) => handleCheck(e.target.checked, c._id)}
-    //               className="mr-2"
-    //             />
-    //             <label htmlFor={c._id} className="text-sm text-gray-700">
-    //               {c.name}
-    //             </label>
-    //           </div>
-    //         ))}
-    //       </div>
-
-    //       {/* Brand Filter */}
-    //       <div className="mb-4">
-    //         <h3 className="font-medium text-sm text-yellow-700 mb-2">Brand</h3>
-    //         {uniqueBrands?.map((foodType) => (
-    //           <div key={foodType} className="flex items-center mb-2">
-    //             <input
-    //               type="radio"
-    //               id={foodType}
-    //               name="foodType"
-    //               onChange={() => handleBrandClick(foodType)}
-    //               className="mr-2"
-    //             />
-    //             <label htmlFor={foodType} className="text-sm text-gray-700">
-    //               {foodType}
-    //             </label>
-    //           </div>
-    //         ))}
-    //       </div>
-
-    //       {/* Price Filter */}
-    //       <div className="mb-4">
-    //         <h3 className="font-medium text-sm text-yellow-700 mb-2">Price</h3>
-    //         <input
-    //           type="text"
-    //           placeholder="Enter Price"
-    //           value={priceFilter}
-    //           onChange={handlePriceChange}
-    //           className="w-full p-2 border border-gray-300 rounded-md"
-    //         />
-    //       </div>
-
-    //       {/* Reset Button */}
-    //       <button
-    //         className="w-full bg-yellow-500 text-white p-2 rounded-md mt-2"
-    //         onClick={() => window.location.reload()}
-    //       >
-    //         Reset
-    //       </button>
-    //     </div>
-
-    //     {/* Product Display Section */}
-    //     <div className="w-full md:w-[calc(100%-270px)]">
-    //       <h2 className="text-center text-lg font-semibold mb-6 text-yellow-700">
-    //         {products?.length} Products Found
-    //       </h2>
-    //       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    //         {products.length === 0 ? (
-    //           <Loader />
-    //         ) : (
-    //           products?.map((p) => (
-    //             <div key={p._id} className="bg-white p-4 rounded-md shadow-md">
-    //               <ProductCard p={p} />
-    //             </div>
-    //           ))
-    //         )}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className=" mx-auto p-4">
+    <div className="mx-auto p-4 mt-[5rem]">
       <div className="flex flex-wrap md:flex-nowrap">
-        {/* Filter Section with Dynamic Height */}
+        {/* Filter Section */}
         <div className="bg-yellow-50 p-4 rounded-md w-full md:w-[250px] mb-6 md:mb-0 shadow-md ml-2 flex-grow-0">
           <h2 className="text-center text-lg font-semibold mb-4 text-yellow-700">
             Filters
@@ -232,9 +160,20 @@ const Shop = () => {
 
         {/* Main Products Section */}
         <div className="p-3 w-full md:w-[calc(100%-250px)]">
-          <h2 className="text-center text-lg font-semibold mb-4">
+          {/* Search Bar Above Products */}
+          <div className="mb-4">
+            <input
+              type="text"
+              placeholder="Search by Name"
+              value={nameFilter}
+              onChange={handleNameChange}
+              className="w-full p-3 border border-yellow-800 rounded-full"
+            />
+          </div>
+
+          {/* <h2 className="text-center text-lg font-semibold mb-4">
             {products?.length} Products
-          </h2>
+          </h2> */}
           <div className="flex flex-wrap">
             {products.length === 0 ? (
               <Loader />

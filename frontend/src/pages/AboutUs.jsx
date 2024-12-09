@@ -26,7 +26,7 @@ const AboutUs = () => {
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
             Our Story
           </h2>
-          <div className="lg:flex lg:justify-between lg:items-center">
+          <div className="lg:flex lg:justify-around lg:items-center">
             <div className="lg:w-1/2">
               <p className="text-lg text-gray-700 mb-4">
                 Quick Cusine was founded in 2024 with a passion for great food
