@@ -34,8 +34,8 @@ export const Profile = () => {
       return
     }
 
-    if (password != confirmPassword) {
-      toast.error('Password Do not match')
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match')
     } else if (password.length < 8) {
       toast.error('Password must be at least 8 characters long')
     } else if (!/[A-Z]/.test(password)) {
@@ -59,47 +59,51 @@ export const Profile = () => {
         setConfirmPassword('')
         toast.success('Profile Updated Successfully')
       } catch (error) {
-        toast.error(error?.date?.message || error.message)
+        toast.error(error?.data?.message || error.message)
       }
     }
   }
+
   return (
-    <div className="container mx-auto p-4 mt-[6rem]">
-      <div className="flex justify-center align-center md:flex md:space-x-4">
-        <div className="md:w-1/3">
-          <h2 className="text-2xl font-semibold mb-4">Update Profile</h2>
-          <form onSubmit={submitHandler}>
+    <div className="container mx-auto p-6 mt-[6rem] bg-white shadow-lg rounded-lg max-w-4xl">
+      <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">
+        Update Profile
+      </h2>
+      <div className="flex flex-col md:flex-row md:justify-center gap-10">
+        <div className="md:w-2/3">
+          <form onSubmit={submitHandler} className="space-y-4">
             <InputField
-              placeholder={'Enter Name'}
-              type={'text'}
+              placeholder="Enter Name"
+              type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              label={'Name'}
+              label="Name"
             />
             <InputField
-              placeholder={'Enter Email'}
-              type={'email'}
+              placeholder="Enter Email"
+              type="email"
               value={email}
-              label={'Email'}
+              label="Email"
+              readOnly
             />
             <InputField
-              placeholder={'Enter Password'}
-              type={'password'}
+              placeholder="Enter Password"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              label={'Password'}
+              label="Password"
             />
             <InputField
-              placeholder={'Confirm Password'}
-              type={'password'}
+              placeholder="Confirm Password"
+              type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              label={'Confirm Password'}
+              label="Confirm Password"
             />
-            <div className="flex  gap-2 ">
-              <Button type={'submit'} buttonName={'Update'} />
+            <div className="flex justify-between mt-6">
+              <Button type="submit" buttonName="Update" />
               <Link to="/user-orders">
-                <Button buttonName={'My Orders'} />
+                <Button buttonName="My Orders" />
               </Link>
             </div>
           </form>
