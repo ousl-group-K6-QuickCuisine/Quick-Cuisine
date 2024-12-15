@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className="bg-[#716a68] py-6 text-white">
+    <footer className="bg-[#5a5a59] py-6 text-white">
       <div className="container mx-auto text-center">
         {/* Contact Info */}
         <p className="text-sm">
@@ -11,7 +11,7 @@ const Footer = () => {
             href="mailto:support@yourcompany.com"
             className="text-orange-500 hover:underline"
           >
-            support@yourcompany.com
+            QuickCusine@gmail.com
           </a>
         </p>
 
@@ -48,7 +48,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <p className="text-sm mt-4">
-          &copy; {new Date().getFullYear()} YourCompany. All rights reserved.
+          &copy; {new Date().getFullYear()} Quick-Cusine. All rights reserved.
         </p>
       </div>
     </footer>
