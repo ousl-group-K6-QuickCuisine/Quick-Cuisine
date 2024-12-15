@@ -12,6 +12,8 @@ const AllProduct = () => {
   if (isError) {
     return <div> Error in Loading products</div>
   }
+  console.log(products)
+
   return (
     <div className="container">
       <div className="admin-content">

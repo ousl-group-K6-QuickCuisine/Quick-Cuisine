@@ -6,7 +6,7 @@ const FavoritesCount = () => {
 
   return (
     favoriteCount > 0 && (
-      <div className="absolute top-0 right-0 px-1.5 py-1 bg-[#D91656] text-white  rounded-full text-xs">
+      <div className="absolute top-0 right-0 px-1.5 py-1 bg-[#fdc82a] text-white  rounded-full text-xs">
         {favoriteCount}
       </div>
     )
