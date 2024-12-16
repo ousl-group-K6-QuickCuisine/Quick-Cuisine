@@ -1,66 +1,62 @@
 /* eslint-disable react/prop-types */
-// Dropdown.js
 import { Link } from 'react-router-dom'
 import '../Components/DropDown.css'
-import AdminMenu from '../pages/Admin/AdminMenu'
 
-const Dropdown = ({ userInfo, dropDownOpen, logoutHandler }) => {
+const Dropdown = ({ userInfo, logoutHandler }) => {
   return (
-    <>
-      {dropDownOpen && userInfo && (
-        <ul className="dropdown_content">
-          {userInfo.isAdmin && (
-            <>
-              {/* <AdminMenu /> */}
-              <li>
-                <Link to="/admin/dashboard" className="dropdown_item">
-                  Admin Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin/productlist" className="dropdown_item">
-                  Create Product
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin/category" className="dropdown_item">
-                  Create Category
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin/allproductslist" className="dropdown_item">
-                  All Product
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin/user_list" className="dropdown_item">
-                  Manage User
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin/order-lists" className="dropdown_item">
-                  Manage Order
-                </Link>
-              </li>
-            </>
-          )}
+    <ul className="dropdown-content shadow-lg rounded-md bg-white border border-gray-200 absolute right-0 mt-2 py-2 w-56 z-50">
+      {/* Admin Links */}
+      {userInfo.isAdmin && (
+        <>
           <li>
-            <Link to="/profile" className=" dropdown_item">
-              Profile
+            <Link to="/admin/dashboard" className="dropdown-item">
+              Admin Dashboard
             </Link>
           </li>
           <li>
-            <Link
-              to="/logout"
-              className=" dropdown_item"
-              onClick={logoutHandler}
-            >
-              Logout
+            <Link to="/admin/productlist" className="dropdown-item">
+              Create Product
             </Link>
           </li>
-        </ul>
+          <li>
+            <Link to="/admin/category" className="dropdown-item">
+              Create Category
+            </Link>
+          </li>
+          <li>
+            <Link to="/admin/allproductslist" className="dropdown-item">
+              All Products
+            </Link>
+          </li>
+          <li>
+            <Link to="/admin/user_list" className="dropdown-item">
+              Manage Users
+            </Link>
+          </li>
+          <li>
+            <Link to="/admin/order-lists" className="dropdown-item">
+              Manage Orders
+            </Link>
+          </li>
+          <hr className="my-2 border-gray-300" />
+        </>
       )}
-    </>
+
+      {/* General Links */}
+      <li>
+        <Link to="/profile" className="dropdown-item">
+          Profile
+        </Link>
+      </li>
+      <li>
+        <button
+          onClick={logoutHandler}
+          className="dropdown-item text-red-600 hover:bg-red-100"
+        >
+          Logout
+        </button>
+      </li>
+    </ul>
   )
 }
 
