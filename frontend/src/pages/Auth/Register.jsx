@@ -66,8 +66,8 @@ const Register = () => {
   }
 
   return (
-    <section className="register_container">
-      <div className="register_from bg-gray-800">
+    <section className="register_container mt-16">
+      <div className="register_from ">
         <h1 className="register_header ">Register</h1>
 
         <form onSubmit={submitHandler} className="form_container">
