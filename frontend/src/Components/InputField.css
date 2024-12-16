@@ -1,12 +1,13 @@
 .input_container {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .input_label {
   display: block;
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
+  margin: 0;
 }
 
 .input_design {
