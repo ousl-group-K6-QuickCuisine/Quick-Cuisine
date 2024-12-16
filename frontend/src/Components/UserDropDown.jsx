@@ -11,8 +11,8 @@ const UserDropdown = ({ userInfo, logoutHandler }) => {
   return (
     <div
       className="relative"
-      onMouseEnter={handleMouseEnter} // Handles hover open
-      onMouseLeave={handleMouseLeave} // Handles hover close
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <button className="flex items-center text-black-800 focus:outline-none">
         {userInfo && <span>{userInfo.username}</span>}

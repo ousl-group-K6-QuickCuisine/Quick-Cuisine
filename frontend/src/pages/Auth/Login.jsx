@@ -54,7 +54,7 @@ const Login = () => {
 
   return (
     <section className="login_container">
-      <div className="login_form bg-gray-800">
+      <div className="login_form ">
         <h1 className="login_header">Sign In</h1>
 
         <form onSubmit={submitHandler} className="form_container">
