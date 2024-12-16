@@ -13,11 +13,11 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   max-width: 420px;
   width: 100%;
-  background-color: #2c2c2c;
+  /* background-color: #2c2c2c; */
 }
 
 .register_header {
-  color: #ffcc00; /* Bold yellow header */
+  /* color: #ffcc00; Bold yellow header */
   text-align: center;
   font-size: 2rem;
   font-family: 'Poppins', sans-serif;
@@ -47,11 +47,11 @@ input:focus {
 }
 
 button {
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     #ffcc00,
     #ff9900
-  ); /* Gradient yellow button */
+  ); Gradient yellow button */
   color: #fff;
   font-weight: bold;
   font-size: 1rem;
@@ -64,12 +64,12 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(90deg, #ff9900, #ffcc00); /* Reverse gradient */
+  /* background: linear-gradient(90deg, #ff9900, #ffcc00); Reverse gradient */
   transform: translateY(-3px); /* Subtle lift */
 }
 
 button:disabled {
-  background: #ffdd80;
+  /* background: #ffdd80; */
   color: #666;
   cursor: not-allowed;
 }
@@ -84,7 +84,7 @@ button:disabled {
 }
 
 .login_link {
-  color: #ffcc00; /* Yellow links */
+  /* color: #ffcc00; Yellow links */
   font-weight: bold;
   text-decoration: none;
 }
