@@ -4,7 +4,7 @@ import { useGetTopProductsQuery } from '../../redux/api/productApiSlice'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import './Carousel.css' // Updated path
+import './Carousel.css'
 
 const ProductCarousel = () => {
   const { data: products, isLoading, isError } = useGetTopProductsQuery()
@@ -17,7 +17,7 @@ const ProductCarousel = () => {
     slidesToScroll: 1,
     arrows: true,
     autoplay: true,
-    autoplaySpeed: 30000,
+    autoplaySpeed: 5000,
   }
 
   return (
