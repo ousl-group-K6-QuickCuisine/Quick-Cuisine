@@ -9,7 +9,7 @@
 .product-carousel-img {
   width: 100%; /* Full width of the carousel */
   height: auto; /* Height adjusts based on aspect ratio */
-  max-height: 100vh; /* Ensure it doesn't exceed the viewport height */
+  max-height: 80vh; /* Increase the maximum height of the image */
   object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
 
