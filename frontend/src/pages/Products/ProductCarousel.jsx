@@ -17,7 +17,7 @@ const ProductCarousel = () => {
     slidesToScroll: 1,
     arrows: true,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 20000,
   }
 
   return (
