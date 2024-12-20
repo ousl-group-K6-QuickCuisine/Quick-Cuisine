@@ -25,9 +25,7 @@ router
   .post(authenticate, AuthorizedAdmin, Formidable(), addFoodItem) // we working with form data for need implement Formidable
 
 router.route('/allProducts').get(allFoodItem)
-router
-  .route('/:id/reviews')
-  .post(authenticate, AuthorizedAdmin, checkId, addFoodItemReview)
+router.route('/:id/reviews').post(authenticate, checkId, addFoodItemReview)
 
 router.route('/top').get(getTopFoodItem)
 router.route('/new').get(getNewFoodItem)
