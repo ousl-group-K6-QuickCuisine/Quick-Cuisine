@@ -46,6 +46,10 @@ const Login = () => {
     } catch (error) {
       if (error?.data?.message === 'Invalid email or password') {
         toast.error('Invalid email or password')
+      } else if (error?.status === 500) {
+        toast.error('Server error, please try again later')
+      } else if (error?.status === 404) {
+        toast.error('User not found')
       } else {
         toast.error(error?.data?.message || 'Something went wrong')
       }

@@ -16,7 +16,7 @@
 }
 
 .login_header {
-  color: #ffd700; /* Bright yellow accent */
+  color: #333;
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
@@ -43,18 +43,16 @@ input:focus {
   box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
-button {
-  background-color: #ffd700; /* Yellow button */
+/* button {
   color: #2c2c2c; /* Dark text for readability */
-  font-weight: bold;
+/* font-weight: bold;
   padding: 0.75rem;
   font-size: 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
+} */
 button:hover {
   background-color: #e5c600; /* Slightly darker yellow on hover */
 }
