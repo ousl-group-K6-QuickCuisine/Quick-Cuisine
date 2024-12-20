@@ -28,6 +28,52 @@ const Login = () => {
     }
   }, [navigate, redirect, userInfo])
 
+  // const submitHandler = async (e) => {
+  //   e.preventDefault()
+
+  //   if (!email) {
+  //     toast.error('Email is required')
+  //     return
+  //   }
+  //   if (!password) {
+  //     toast.error('Password is required')
+  //     return
+  //   }
+
+  //   // try {
+  //   //   const res = await login({ email, password }).unwrap()
+  //   //   dispatch(setCredentials({ ...res }))
+  //   //   navigate(redirect)
+  //   // } catch (error) {
+  //   //   if (error?.data?.message === 'Invalid email or password') {
+  //   //     toast.error('Invalid email or password')
+  //   //   } else if (error?.status === 500) {
+  //   //     toast.error('Server error, please try again later')
+  //   //   } else if (error?.status === 404) {
+  //   //     toast.error('User not found')
+  //   //   } else {
+  //   //     toast.error(error?.data?.message || 'Something went wrong')
+  //   //   }
+  //   // }
+
+  //   try {
+  //     const res = await login({ email, password }).unwrap()
+  //     dispatch(setCredentials({ ...res }))
+  //     navigate(redirect)
+  //   } catch (error) {
+  //     const message = error?.data?.message || 'Something went wrong'
+  //     if (message === 'Invalid email or password') {
+  //       toast.error('Invalid email or password')
+  //     } else if (error?.status === 500) {
+  //       toast.error('Server error, please try again later')
+  //     } else if (error?.status === 404) {
+  //       toast.error('User not found')
+  //     } else {
+  //       toast.error(message)
+  //     }
+  //   }
+  // }
+
   const submitHandler = async (e) => {
     e.preventDefault()
 
@@ -39,19 +85,19 @@ const Login = () => {
       toast.error('Password is required')
       return
     }
+
     try {
       const res = await login({ email, password }).unwrap()
       dispatch(setCredentials({ ...res }))
       navigate(redirect)
     } catch (error) {
-      if (error?.data?.message === 'Invalid email or password') {
+      const message = error?.data?.message || 'Something went wrong'
+      if (message === 'Incorrect password') {
+        toast.error('The password you entered is incorrect')
+      } else if (message === 'Invalid email or password') {
         toast.error('Invalid email or password')
-      } else if (error?.status === 500) {
-        toast.error('Server error, please try again later')
-      } else if (error?.status === 404) {
-        toast.error('User not found')
       } else {
-        toast.error(error?.data?.message || 'Something went wrong')
+        toast.error(message)
       }
     }
   }
