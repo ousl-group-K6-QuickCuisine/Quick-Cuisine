@@ -52,7 +52,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="p-6 lg:p-12 font-sans">
+    <div className="p-6 lg:p-12 font-sans mt-8">
       <button
         onClick={() => navigate(-1)}
         className="text-blue-600 font-semibold hover:underline mb-6"

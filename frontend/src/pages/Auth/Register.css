@@ -42,8 +42,8 @@ input {
 }
 
 input:focus {
-  border-color: #ffcc00; /* Yellow border focus */
-  box-shadow: 0 0 6px rgba(255, 204, 0, 0.6);
+  border-color: gray; /* Yellow border focus */
+  box-shadow: 0 0 6px gray;
 }
 
 button {
@@ -81,10 +81,11 @@ button:disabled {
 
 .redirect-message {
   font-size: 0.9rem;
+  color: black;
 }
 
 .login_link {
-  /* color: #ffcc00; Yellow links */
+  color: #ffcc00;
   font-weight: bold;
   text-decoration: none;
 }

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 import Dropdown from './Dropdown'
+import '../Components/DropDown.css'
 
 const UserDropdown = ({ userInfo, logoutHandler }) => {
   const [dropDownOpen, setDropDownOpen] = useState(false)
@@ -14,7 +15,7 @@ const UserDropdown = ({ userInfo, logoutHandler }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button className="flex items-center text-black-800 focus:outline-none">
+      <button className="flex items-center text-black hover:bg-yellow-300 ">
         {userInfo && <span>{userInfo.username}</span>}
         {userInfo && (
           <svg
