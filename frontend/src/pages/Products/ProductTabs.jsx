@@ -67,12 +67,12 @@ const ProductTabs = ({
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}
                   >
-                    <option value="">Select</option>
-                    <option value="1">Inferior</option>
-                    <option value="2">Decent</option>
-                    <option value="3">Great</option>
-                    <option value="4">Excellent</option>
-                    <option value="5">Exceptional</option>
+                    <option value="">Select Review</option>
+                    <option value="1">Terrible</option>
+                    <option value="2">Not Good</option>
+                    <option value="3">Average</option>
+                    <option value="4">Very Good</option>
+                    <option value="5">Outstanding</option>
                   </select>
                 </div>
                 <div className="my-2">

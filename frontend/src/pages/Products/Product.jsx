@@ -35,7 +35,7 @@ const Product = ({ product }) => {
           </span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-yellow-700 font-medium text-lg">
+          <span className=" font-medium text-lg">
             LKR {product.price - product.price * 0.1}{' '}
             <s className="text-sm text-red-300"> LKR{product.price}</s>
           </span>
