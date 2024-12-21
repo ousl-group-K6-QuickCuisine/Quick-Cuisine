@@ -1,0 +1,100 @@
+/* ProductTabs.css */
+
+/* General layout */
+.product-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-tabs .tab-navigation {
+  margin-right: 5rem;
+}
+
+.product-tabs .tab-navigation .tab-item {
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.125rem;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.product-tabs .tab-navigation .tab-item.active {
+  font-weight: bold;
+  color: #d97706; /* Yellow */
+  border-bottom: 4px solid #d97706;
+}
+
+.product-tabs .tab-navigation .tab-item:hover {
+  color: #d97706;
+}
+
+/* Tab content section */
+.product-tabs .tab-content {
+  padding: 1rem;
+}
+
+.product-tabs .tab-content .review-form {
+  margin-top: 1rem;
+}
+
+.product-tabs .tab-content .review-form label {
+  display: block;
+  font-size: 1.125rem;
+  color: #d97706;
+  margin-bottom: 0.5rem;
+}
+
+.product-tabs .tab-content .review-form select,
+.product-tabs .tab-content .review-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 40rem;
+  color: #000;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.product-tabs .tab-content .review-form select:focus,
+.product-tabs .tab-content .review-form textarea:focus {
+  border-color: #d97706;
+  box-shadow: 0 0 5px #d97706;
+}
+
+.product-tabs .tab-content .review-form button {
+  background-color: #d97706;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-tabs .tab-content .review-form button:hover {
+  background-color: #b45309;
+}
+
+.product-tabs .tab-content .reviews .review {
+  background-color: #9ca3af;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  max-width: 50rem;
+}
+
+.product-tabs .tab-content .reviews .review strong {
+  color: #d97706;
+}
+
+.product-tabs .tab-content .reviews .review p {
+  margin: 1rem 0;
+  color: #e0e0e0;
+}
+
+.product-tabs .tab-content .related-products {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  color: #d97706;
+}

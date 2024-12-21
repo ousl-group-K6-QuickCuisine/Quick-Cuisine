@@ -1,79 +1,62 @@
-// Dropdown.js
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
+import '../Components/DropDown.css'
 
-const Dropdown = ({ userInfo, dropDownOpen, logoutHandler }) => {
+const Dropdown = ({ userInfo, logoutHandler }) => {
   return (
-    <>
-      {dropDownOpen && userInfo && (
-        <ul
-          className={`absolute right-0 mt-2 space-y-2 bg-gray-800 shadow-lg rounded text-black-600 w-48 ${
-            !userInfo.isAdmin ? 'top-10' : 'top-10'
-          }`}
-        >
-          {userInfo.isAdmin && (
-            <>
-              <li>
-                <Link
-                  to="/admin/dashboard"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/productlist"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/category"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
-                  Category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/orderlist"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
-                  Orders
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/userlist"
-                  className="block px-4 py-2 hover:bg-[#fabc3f]"
-                >
-                  Users
-                </Link>
-              </li>
-            </>
-          )}
+    <ul className="dropdown-content shadow-lg rounded-md bg-white border border-gray-200 absolute right-0 mt-2 py-2 w-56 z-50">
+      {/* Admin Links */}
+      {userInfo.isAdmin && (
+        <>
           <li>
-            <Link
-              to="/admin/profile"
-              className="block px-4 py-2 hover:bg-[#fabc3f]"
-            >
-              Profile
+            <Link to="/admin/dashboard" className="dropdown-item">
+              Admin Dashboard
             </Link>
           </li>
           <li>
-            <Link
-              to="/admin/logout"
-              className="block px-4 py-2 hover:bg-[#fabc3f]"
-              onClick={logoutHandler}
-            >
-              Logout
+            <Link to="/admin/productlist" className="dropdown-item">
+              Create Product
             </Link>
           </li>
-        </ul>
+          <li>
+            <Link to="/admin/category" className="dropdown-item">
+              Create Category
+            </Link>
+          </li>
+          <li>
+            <Link to="/admin/allproductslist" className="dropdown-item">
+              All Products
+            </Link>
+          </li>
+          <li>
+            <Link to="/admin/user_list" className="dropdown-item">
+              Manage Users
+            </Link>
+          </li>
+          <li>
+            <Link to="/admin/order-lists" className="dropdown-item">
+              Manage Orders
+            </Link>
+          </li>
+          <hr className="my-2 border-gray-300" />
+        </>
       )}
-    </>
+
+      {/* General Links */}
+      <li>
+        <Link to="/profile" className="dropdown-item">
+          Profile
+        </Link>
+      </li>
+      <li>
+        <button
+          onClick={logoutHandler}
+          className="dropdown-item text-red-600 hover:bg-red-100"
+        >
+          Logout
+        </button>
+      </li>
+    </ul>
   )
 }
 

@@ -50,7 +50,10 @@ const loginUser = asyncHandler(async (req, res) => {
         password: existingUser.password,
         isAdmin: existingUser.isAdmin,
       })
-      return //exit the function after sending response
+      return
+    } else {
+      res.status(401) // Unauthorized
+      throw new Error('Invalid email or password')
     }
   }
 })

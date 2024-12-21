@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import { useLoginMutation } from '../../redux/api/usersApiSlices'
 import Loader from '../../Components/Loader'
 import InputField from '../../Components/InputField'
-import Button from '../../Components/Button'
+import ButtonForLogin from '../../Components/ButtonForLogin'
 import './Login.css'
 
 const Login = () => {
@@ -39,22 +39,44 @@ const Login = () => {
       toast.error('Password is required')
       return
     }
+
+    // try {
+    //   const res = await login({ email, password }).unwrap()
+    //   dispatch(setCredentials({ ...res }))
+    //   navigate(redirect)
+    // } catch (error) {
+    //   if (error?.data?.message === 'Invalid email or password') {
+    //     toast.error('Invalid email or password')
+    //   } else if (error?.status === 500) {
+    //     toast.error('Server error, please try again later')
+    //   } else if (error?.status === 404) {
+    //     toast.error('User not found')
+    //   } else {
+    //     toast.error(error?.data?.message || 'Something went wrong')
+    //   }
+    // }
+
     try {
       const res = await login({ email, password }).unwrap()
       dispatch(setCredentials({ ...res }))
       navigate(redirect)
     } catch (error) {
-      if (error?.data?.message === 'Invalid email or password') {
+      const message = error?.data?.message || 'Something went wrong'
+      if (message === 'Invalid email or password') {
         toast.error('Invalid email or password')
+      } else if (error?.status === 500) {
+        toast.error('Server error, please try again later')
+      } else if (error?.status === 404) {
+        toast.error('User not found')
       } else {
-        toast.error(error?.data?.message || 'Something went wrong')
+        toast.error(message)
       }
     }
   }
 
   return (
     <section className="login_container">
-      <div className="login_form bg-gray-800">
+      <div className="login_form ">
         <h1 className="login_header">Sign In</h1>
 
         <form onSubmit={submitHandler} className="form_container">
@@ -76,9 +98,11 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button type="submit" disabled={isLoading} isLoading={isLoading}>
-            Login
-          </Button>
+          <ButtonForLogin
+            type="submit"
+            disabled={isLoading}
+            isLoading={isLoading}
+          ></ButtonForLogin>
 
           {isLoading && <Loader />}
         </form>

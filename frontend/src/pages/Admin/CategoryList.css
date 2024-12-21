@@ -1,0 +1,71 @@
+/* Main container styling */
+.category-list-container {
+  margin-left: 10rem;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .category-list-container {
+    flex-direction: row;
+  }
+}
+
+/* Admin menu */
+.admin-menu {
+  margin-top: 100px;
+  width: 70%;
+  padding: 1rem;
+}
+
+.manage-categories-title {
+  height: 3rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Category form styling */
+.category-form {
+  margin-bottom: 1.5rem;
+}
+
+.category-divider {
+  border-top: 1px solid #d1d5db;
+  margin-bottom: 1.5rem;
+}
+
+/* Category buttons container */
+.category-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Category button */
+.category-button {
+  background-color: #fef3c7;
+  border: 1px solid #f59e0b;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0.75rem;
+  color: #f59e0b;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.category-button:hover {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.category-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+}
+
+/* Modal styles */
+.modal {
+  /* Add specific modal styles if needed */
+}

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import { useRegisterMutation } from '../../redux/api/usersApiSlices'
 import Loader from '../../Components/Loader'
 import InputField from '../../Components/InputField'
-import Button from '../../Components/Button'
+import ButtonForRegister from '../../Components/ButtonForRegister'
 import './Register.css'
 
 const Register = () => {
@@ -66,8 +66,8 @@ const Register = () => {
   }
 
   return (
-    <section className="register_container">
-      <div className="register_from bg-gray-800">
+    <section className="register_container mt-16">
+      <div className="register_from ">
         <h1 className="register_header ">Register</h1>
 
         <form onSubmit={submitHandler} className="form_container">
@@ -106,9 +106,13 @@ const Register = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <Button type={'submit'} disabled={isLoading} isLoading={isLoading}>
+          <ButtonForRegister
+            type={'submit'}
+            disabled={isLoading}
+            isLoading={isLoading}
+          >
             Register
-          </Button>
+          </ButtonForRegister>
 
           {isLoading && <Loader />}
         </form>

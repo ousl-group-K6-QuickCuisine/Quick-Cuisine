@@ -1,26 +1,26 @@
-// components/UserDropdown.js
+/* eslint-disable react/prop-types */
+import { useState } from 'react'
 import Dropdown from './Dropdown'
-// import './UserDropdown.css' // Optional CSS file for styling
+import '../Components/DropDown.css'
 
-const UserDropdown = ({
-  userInfo,
-  dropDownOpen,
-  toggleDropDown,
-  logoutHandler,
-}) => {
+const UserDropdown = ({ userInfo, logoutHandler }) => {
+  const [dropDownOpen, setDropDownOpen] = useState(false)
+
+  const handleMouseEnter = () => setDropDownOpen(true) // Open dropdown on hover
+  const handleMouseLeave = () => setDropDownOpen(false) // Close dropdown when mouse leaves
+
   return (
-    <div className="relative">
-      <button
-        className="flex items-center text-black-800 focus:outline-none"
-        onClick={toggleDropDown}
-      >
-        {userInfo ? <span>{userInfo.username}</span> : <></>}
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <button className="flex items-center text-black hover:bg-yellow-300 ">
+        {userInfo && <span>{userInfo.username}</span>}
         {userInfo && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`h-4 w-4 ml-1 ${
-              dropDownOpen ? 'transform rotate-180' : ''
-            }`}
+            className="h-4 w-4 ml-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="black"
@@ -34,11 +34,9 @@ const UserDropdown = ({
           </svg>
         )}
       </button>
-      <Dropdown
-        userInfo={userInfo}
-        dropDownOpen={dropDownOpen}
-        logoutHandler={logoutHandler}
-      />
+      {dropDownOpen && (
+        <Dropdown userInfo={userInfo} logoutHandler={logoutHandler} />
+      )}
     </div>
   )
 }

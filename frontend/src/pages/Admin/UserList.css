@@ -1,0 +1,59 @@
+.Users_list_container {
+  padding: 1rem;
+}
+.Users_list_heading {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+  text-align: start;
+}
+
+.table_container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+}
+
+@media (min-width: 768px) {
+  .table_container {
+    width: 80%;
+  }
+}
+
+.table_head {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  background-color: #fabc3f;
+}
+.table_raw {
+  background-color: #ebf8ff;
+}
+.table_raw_container {
+  display: flex;
+  align-items: center;
+}
+
+.update_input {
+  width: 100%;
+  border-width: 1px;
+  border-radius: 0.5rem;
+}
+.update_btn {
+  margin-left: 0.5rem;
+  background-color: #3b82f6;
+  adding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+.table_data {
+  padding-left: 1rem /* 16px */;
+  padding-right: 1rem /* 16px */;
+  padding-top: 0.5rem /* 8px */;
+  padding-bottom: 0.5rem /* 8px */;
+}

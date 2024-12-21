@@ -1,0 +1,58 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+.home-title {
+  font-size: 3rem;
+  color: #fbbf24; /* yellow-700 */
+  margin: 0;
+}
+
+.search-button {
+  background-color: #f59e0b; /* yellow-600 */
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 2.5rem;
+  border-radius: 9999px;
+  margin-right: 18rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #d97706; /* hover effect */
+}
+
+.products-section {
+  margin-top: 2rem;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.product-card {
+  margin-bottom: 1.5rem;
+}
+
+.message-info {
+  text-align: center;
+  font-size: 1rem;
+  color: #334155; /* gray-700 */
+  margin-top: 2rem;
+}

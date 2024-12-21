@@ -2,6 +2,7 @@
 
 .nav_bar {
   position: fixed;
+  display: block;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,8 +11,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #1f2937;
-  color: white;
+  background-color: #ebe7e6;
+  margin-bottom: 100px;
 }
 
 .logo_img {
@@ -33,7 +34,7 @@
   transition: background-color 0.3s;
 }
 .nav_items:hover {
-  background-color: #fabc3f;
+  background-color: #ffb200;
 }
 
 /* Auth links section */

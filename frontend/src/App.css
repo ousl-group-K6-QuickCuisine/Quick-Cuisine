@@ -1,0 +1,11 @@
+/* Ensure root container fills the entire height */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure main content expands to fill available space */
+.main-content {
+  flex-grow: 1;
+}

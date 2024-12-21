@@ -1,0 +1,178 @@
+/* AllProduct.css */
+
+/* Container */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* Limit the width of the page */
+  padding: 2rem;
+}
+
+/* Flex container for product list and admin menu */
+.admin-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+/* Product list container */
+.product-list-containers {
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to the next row if needed */
+  justify-content: space-between; /* Add space between the items */
+  gap: 1.5rem;
+}
+
+/* Individual product card */
+.product-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px; /* Fixed width for each product card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1rem auto; /* Space between rows */
+  height: auto; /* Allow height to adjust dynamically based on content */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+/* Product card hover effect */
+.product-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+.product-image {
+  width: 100%;
+  height: 10rem; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensures the image covers the space */
+  border-bottom: 2px solid #f1f1f1; /* Border between image and text */
+}
+
+/* Product details container */
+.product-details {
+  padding: 1.25rem;
+  flex: 1; /* Allow this section to take remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 12rem; /* Ensure the text section has a minimum height */
+}
+
+/* Product header (name & date) */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Reduce the margin between the name and date */
+}
+
+.product-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.product-date {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Product description */
+.product-description {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.5;
+  margin-top: 0.1rem; /* Reduced margin-top to close the gap with the name */
+  overflow: hidden;
+}
+
+/* Product actions (price and button) */
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.product-price {
+  font-size: 1.125rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+/* Button styles */
+.update-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+  background-color: #fa9336;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+  background-color: #e57c1f;
+  cursor: pointer;
+}
+
+.update-button svg {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+}
+
+/* Admin Menu container */
+.admin-menu-container {
+  width: 100%;
+  margin-top: 2rem;
+  flex-basis: 25%; /* Admin menu takes 25% of the container width */
+}
+
+/* Responsive styles for medium screens (e.g., tablets) */
+@media (max-width: 1024px) {
+  .product-list-containers {
+    justify-content: center; /* Center the items for smaller screens */
+  }
+
+  .product-item {
+    width: 300px; /* Maintain fixed width for product cards */
+  }
+}
+
+/* Responsive styles for small screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+  .admin-content {
+    flex-direction: column; /* Stack the product list and admin menu vertically on smaller screens */
+  }
+
+  .product-item {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .product-image {
+    height: 10rem; /* Adjust image height for smaller screens */
+  }
+
+  .product-details {
+    padding: 1rem;
+  }
+
+  .update-button {
+    font-size: 0.75rem; /* Smaller font for buttons on mobile */
+  }
+
+  .product-actions {
+    flex-direction: column;
+    gap: 0.5rem; /* Stack price and button on top of each other */
+    align-items: flex-start;
+  }
+}

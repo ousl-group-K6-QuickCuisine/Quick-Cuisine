@@ -1,0 +1,61 @@
+/* Ensure the carousel takes up the full width */
+.product-carousel {
+  width: 100%;
+  margin-bottom: 3rem;
+  overflow: hidden; /* Prevent overflow issues */
+}
+
+/* Adjust the height of the images to fit dynamically */
+.product-carousel-img {
+  width: 100%; /* Full width of the carousel */
+  height: auto; /* Height adjusts based on aspect ratio */
+  max-height: 80vh; /* Increase the maximum height of the image */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+/* Slick slide container - center content properly */
+.slick-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the image horizontally */
+}
+
+/* Slick navigation arrows - position properly */
+.slick-prev,
+.slick-next {
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Ensure arrows are visible over the image */
+}
+
+/* Desktop and tablet screens */
+@media (min-width: 768px) {
+  .product-carousel {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .product-carousel-img {
+    max-height: 60vh; /* Adjust for larger screens */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .product-carousel {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .product-carousel-img {
+    max-height: 40vh; /* Adjust for smaller screens */
+  }
+}
+
+/* Optional: Hide navigation arrows on small mobile screens */
+@media (max-width: 480px) {
+  .slick-prev,
+  .slick-next {
+    display: none;
+  }
+}
