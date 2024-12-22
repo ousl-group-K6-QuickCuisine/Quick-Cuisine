@@ -43,14 +43,14 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/aboutUs" element={<AboutUs />} />
+      <Route index={true} path="/" element={<Home />} />
+      <Route index={true} path="/product/:id" element={<ProductDetails />} />
+      <Route index={true} path="/menu" element={<Shop />} />
 
       <Route path="" element={<PrivateRoute />}>
         <Route path="/profile" element={<Profile />} />
-        <Route index={true} path="/" element={<Home />} />
-        <Route index={true} path="/favorite" element={<Favorites />} />
-        <Route index={true} path="/product/:id" element={<ProductDetails />} />
         <Route index={true} path="/cart" element={<Cart />} />
-        <Route index={true} path="/menu" element={<Shop />} />
+        <Route index={true} path="/favorite" element={<Favorites />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/order/:id" element={<Order />} />
