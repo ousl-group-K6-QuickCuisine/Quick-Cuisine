@@ -4,10 +4,9 @@ import Product from './Product'
 
 const Favorites = () => {
   const favorites = useSelector(selectFavoriteProduct)
-  console.log(favorites)
   return (
     <div className="ml-[10rem] mt-[7rem]">
-      <h1 className="text-LG font-bold ml-[3rem] mt-[3rem]">
+      <h1 className="text-LG font-bold ml-[3rem] mt-[3rem] inline-block">
         Favorite Products
       </h1>
 
