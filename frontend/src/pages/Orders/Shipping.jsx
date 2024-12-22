@@ -40,7 +40,7 @@ const Shipping = () => {
           onSubmit={submitHandler}
         >
           <h1 className="text-2xl font-semibold mb-4 text-gray-700">
-            Deliver Address
+            Delivery Address
           </h1>
           <div className="mb-4">
             <label className="block mb-2 text-gray-600">Address</label>
