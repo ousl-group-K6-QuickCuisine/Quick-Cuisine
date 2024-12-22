@@ -19,7 +19,7 @@ const UserOrder = () => {
           <thead>
             <tr>
               <td className="py-2">IMAGE</td>
-              <td className="py-2">ID</td>
+              <td className="py-2">Order ID</td>
               <td className="py-2">DATE</td>
               <td className="py-2">TOTAL</td>
               <td className="py-2">PAID</td>
