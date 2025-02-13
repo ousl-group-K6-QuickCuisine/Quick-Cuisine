@@ -63,6 +63,7 @@ const logoutCurrentUser = asyncHandler(async (req, res) => {
     httpOnly: true,
     expires: new Date(0),
   })
+
   res.status(200).send({ message: 'Logged out Successfully' })
 })
 
