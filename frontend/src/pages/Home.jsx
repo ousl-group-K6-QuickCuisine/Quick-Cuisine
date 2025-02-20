@@ -37,7 +37,7 @@ const Home = () => {
           <div className="mt-8">
             <div className="flex justify-around flex-wrap gap-6 mt-[2rem] mb-2 px-4">
               {data.length > 0 ? (
-                data.slice(0, 20).map((product) => (
+                data.slice(0, 8).map((product) => (
                   <div key={product._id} className="mb-6">
                     <Product product={product} />
                   </div>
