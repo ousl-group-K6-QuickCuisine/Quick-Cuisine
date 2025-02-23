@@ -1,10 +1,56 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import '../Components/DropDown.css'
 
 const Dropdown = ({ userInfo, logoutHandler }) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    window.addEventListener('resize', handleResize)
+    handleResize()
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <ul className="dropdown-content shadow-lg rounded-md bg-white border border-gray-200 absolute right-0 mt-2 py-2 w-56 z-50">
+      {/* Mobile Links */}
+      {isMobile && (
+        <>
+          <li>
+            <Link to="/" className="dropdown-item">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/menu" className="dropdown-item">
+              Menu
+            </Link>
+          </li>
+          <li>
+            <Link to="/menu" className="dropdown-item">
+              Menu
+            </Link>
+          </li>
+          <li>
+            <Link to="/menu" className="dropdown-item">
+              Menu
+            </Link>
+          </li>
+          <li>
+            <Link to="/menu" className="dropdown-item">
+              Menu
+            </Link>
+          </li>
+        </>
+      )}
       {/* Admin Links */}
       {userInfo.isAdmin && (
         <>

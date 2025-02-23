@@ -11,7 +11,6 @@ import {
 } from '../redux/features/shop/shopSlice'
 import Loader from '../Components/Loader'
 import { useFetchAllCategoryQuery } from '../redux/api/categoryApiSlice'
-import ProductCard from './Products/ProductCard'
 import Product from './Products/Product'
 
 const Shop = () => {
@@ -21,7 +20,7 @@ const Shop = () => {
   )
   const categoriesQuery = useFetchAllCategoryQuery()
   const [priceFilter, setPriceFilter] = useState('')
-  const [nameFilter, setNameFilter] = useState('') // New state for name filtering
+  const [nameFilter, setNameFilter] = useState('')
   const filteredProductsQuery = useGetFilteredProductsQuery({ checked, radio })
 
   useEffect(() => {
@@ -31,22 +30,21 @@ const Shop = () => {
   }, [categoriesQuery.data, dispatch])
 
   useEffect(() => {
-    if (!checked.length || !radio.length) {
-      if (!filteredProductsQuery.isLoading) {
-        let filteredProducts = filteredProductsQuery.data.filter((product) => {
-          return (
-            product.price.toString().includes(priceFilter) ||
-            product.price === parseInt(priceFilter, 10)
-          )
-        })
-        // Apply name filter here
-        if (nameFilter) {
-          filteredProducts = filteredProducts.filter((product) =>
-            product.name.toLowerCase().includes(nameFilter.toLowerCase())
-          )
-        }
-        dispatch(setProducts(filteredProducts))
+    if (!filteredProductsQuery.isLoading) {
+      let filteredProducts = filteredProductsQuery.data.filter((product) => {
+        // filter
+        return (
+          product.price.toString().includes(priceFilter) ||
+          product.price === parseInt(priceFilter, 10)
+        )
+      })
+      // Apply name filter here
+      if (nameFilter) {
+        filteredProducts = filteredProducts.filter((product) =>
+          product.name.toLowerCase().includes(nameFilter.toLowerCase())
+        )
       }
+      dispatch(setProducts(filteredProducts))
     }
   }, [
     checked,
@@ -90,10 +88,10 @@ const Shop = () => {
   }
 
   return (
-    <div className="mx-auto p-4 mt-[5rem]">
-      <div className="flex flex-wrap md:flex-nowrap">
+    <div className="p-4 mt-[5rem] ">
+      <div className="flex  md:flex-nowrap">
         {/* Filter Section */}
-        <div className="p-4 rounded-md  md:w-[250px] mb-6 md:mb-0 shadow-md ml-2 flex-grow-0">
+        <div className="p-4 rounded-md  md:w-[250px] mb-6 md:mb-0 shadow-md ml-2 h-1/2">
           <h2 className="text-center text-lg font-semibold mb-4 text-yellow-700">
             Filters
           </h2>
@@ -169,7 +167,7 @@ const Shop = () => {
               placeholder="Search by Name"
               value={nameFilter}
               onChange={handleNameChange}
-              className="w-full p-3 border border-yellow-800 rounded-full"
+              className="w-full p-3   rounded-full"
             />
           </div>
 

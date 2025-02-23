@@ -26,20 +26,20 @@ const AboutUs = () => {
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
             Our Story
           </h2>
-          <div className="lg:flex lg:justify-around lg:items-center">
+          <div className="lg:flex lg:justify-between lg:items-center gap-6">
             <div className="lg:w-1/2">
-              <p className="text-lg text-gray-700 mb-4">
+              <div className="text-xl text-gray-700 mb-4">
                 Quick Cusine was founded in 2024 with a passion for great food
                 and exceptional service. Our journey began in a small kitchen,
                 and over the years, we have grown into a beloved local
                 restaurant known for its cozy atmosphere and delicious dishes.
-              </p>
-              <p className="text-lg text-gray-700">
+              </div>
+              <div className="text-xl text-gray-700">
                 Our mission is simple: to serve food that not only satisfies
                 your hunger but also delights your senses. Every dish is made
                 with love, using only the finest ingredients sourced from local
                 farms and markets.
-              </p>
+              </div>
             </div>
             <div className="lg:w-1/2 mt-6 lg:mt-0">
               <img
@@ -56,14 +56,14 @@ const AboutUs = () => {
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
             Our Mission
           </h2>
-          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+          <div className="text-lg text-gray-600  max-w-3xl mx-auto">
             At Quick Cusine, we are committed to serving high-quality,
             locally-sourced food that brings people together. We believe in
             sustainability, community, and making every dining experience an
             unforgettable one. Whether you are here for a casual lunch or a
             celebratory dinner, we strive to provide an experience that will
             leave you coming back for more.
-          </p>
+          </div>
         </div>
 
         {/* Why Choose Us Section */}

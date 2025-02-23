@@ -116,7 +116,9 @@ const ProductDetails = () => {
                 <p>
                   <FaStar className="inline mr-2 text-yellow-500" />
                   Ratings:{' '}
-                  <span className="text-gray-700">{product.rating}</span>
+                  <span className="text-gray-700">
+                    {Math.round(product.rating * 100) / 100}
+                  </span>
                 </p>
 
                 <p>

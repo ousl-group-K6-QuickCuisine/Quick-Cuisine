@@ -134,3 +134,5 @@ const Navigation = () => {
 }
 
 export default Navigation
+
+// write code that work for mobile screen

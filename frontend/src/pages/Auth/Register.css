@@ -7,22 +7,20 @@
 }
 
 .register_from {
-  /* Slightly lighter for contrast */
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   max-width: 420px;
   width: 100%;
-  /* background-color: #2c2c2c; */
 }
 
 .register_header {
-  /* color: #ffcc00; Bold yellow header */
   text-align: center;
   font-size: 2rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
+  margin-bottom: 0rem;
 }
 
 .form_container {
@@ -42,16 +40,11 @@ input {
 }
 
 input:focus {
-  border-color: gray; /* Yellow border focus */
+  border-color: gray;
   box-shadow: 0 0 6px gray;
 }
 
 button {
-  /* background: linear-gradient(
-    90deg,
-    #ffcc00,
-    #ff9900
-  ); Gradient yellow button */
   color: #fff;
   font-weight: bold;
   font-size: 1rem;
@@ -64,8 +57,7 @@ button {
 }
 
 button:hover {
-  /* background: linear-gradient(90deg, #ff9900, #ffcc00); Reverse gradient */
-  transform: translateY(-3px); /* Subtle lift */
+  transform: translateY(-3px);
 }
 
 button:disabled {
@@ -75,7 +67,7 @@ button:disabled {
 }
 
 .account-prompt {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   text-align: center;
 }
 

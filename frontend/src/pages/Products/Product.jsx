@@ -5,7 +5,7 @@ import HeartIcon from './HeartIcon'
 
 const Product = ({ product }) => {
   return (
-    <div className="w-[18rem] ml-[2rem] relative rounded-lg shadow-lg border bg-white transition-transform hover:scale-105">
+    <div className="w-[18rem]  relative rounded-lg shadow-lg border bg-white transition-transform hover:scale-105">
       {' '}
       <div className="relative">
         <img
@@ -36,8 +36,8 @@ const Product = ({ product }) => {
         </div>
         <div className="flex justify-between items-center">
           <span className=" font-medium text-lg">
-            LKR {product.price - product.price * 0.1}{' '}
-            <s className="text-sm text-red-300"> LKR{product.price}</s>
+            LKR {product.price}{' '}
+            <s className="text-sm"> LKR{product.price + product.price * 0.1}</s>
           </span>
           <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">
             {product.foodType}
