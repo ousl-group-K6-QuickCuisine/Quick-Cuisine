@@ -15,7 +15,7 @@ const Home = () => {
   const { keyword } = useParams()
   const { data, isLoading, isError } = useGetTopProductsQuery()
   // const { data, isLoading, isError } = useAllProductsQuery()
-  console.log(data)
+  // console.log(data)
   return (
     <>
       {!keyword && <Header />}
@@ -26,7 +26,7 @@ const Home = () => {
       ) : (
         <>
           <div className="flex justify-between items-center">
-            <h1 className="ml-[2rem] mt-[1rem] text-[3rem] text-yellow-700">
+            <h1 className="ml-[2rem] mt-[1rem] text-[3rem] text-yellow-700 ">
               Special Food Items
             </h1>
             <Link

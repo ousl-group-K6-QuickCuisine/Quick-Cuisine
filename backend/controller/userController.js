@@ -19,6 +19,18 @@ const createUser = asyncHandler(async (req, res) => {
   try {
     await newUser.save()
     createToken(res, newUser._id)
+
+    // sending welcome email
+    const mailOption = {
+      from: process.env.SENDER_EMAIL,
+      to: email,
+      subject: 'Welcome to Quick Quis Application',
+      text: `Hi ${name}, Welcome to Auth Application you have successfully registered with ${email}`,
+    }
+
+    await transporter.sendMail(mailOption)
+    console.log('Test email sent!')
+
     res.status(201).json({
       _id: newUser._id,
       username: newUser.username,

@@ -36,7 +36,7 @@ const Login = () => {
       return
     }
     if (!password) {
-      toast.error('Password is required')
+      toast.error('Password is required ')
       return
     }
 

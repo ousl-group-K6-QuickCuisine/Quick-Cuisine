@@ -56,7 +56,7 @@ const AboutUs = () => {
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
             Our Mission
           </h2>
-          <div className="text-lg text-gray-600  max-w-3xl mx-auto">
+          <div className="text-lg text-gray-600  max-w-3xl mx-auto ">
             At Quick Cusine, we are committed to serving high-quality,
             locally-sourced food that brings people together. We believe in
             sustainability, community, and making every dining experience an

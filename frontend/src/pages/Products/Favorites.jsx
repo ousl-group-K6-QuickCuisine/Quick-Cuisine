@@ -10,7 +10,7 @@ const Favorites = () => {
         Favorite Products
       </h1>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap gap-5 ">
         {favorites.map((product) => (
           <Product key={product._id} product={product} />
         ))}
